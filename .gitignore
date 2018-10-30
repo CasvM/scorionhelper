@@ -1,0 +1,13 @@
+__pycache__
+build
+csvTest
+dist
+groupSplitter
+Notepad++
+selTest
+tkTest
+ELS_GUI.spec
+ELS_GUI2.txt
+elslogo.png
+progressTest.py
+*.pyc

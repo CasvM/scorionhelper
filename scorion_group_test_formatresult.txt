@@ -1,0 +1,4 @@
+firstname;lastname;grouphand;role;status;username;password;email;syncstatus
+cés;mierLo;testcas-groep-1;group_student,overall_filemanager;active;test1_test@test.nl;Geheim12345!;cwvanmierlo@student.tudelft.nl;notsynced
+sjoerd;de groot;testcas-groep-2;group_student,overall_filemanager;active;test_test2@test.nl;Geheim12345!;sdegroot@student.tudelft.nl;notsynced
+janneke;bLok;testcas–groep-3;group_student,overall_filemanager;active;test_test3@test.nl;Geheim12345!;jblok1@student.tudelft.nl;notsynced

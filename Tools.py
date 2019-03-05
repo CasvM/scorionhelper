@@ -72,7 +72,7 @@ def getGroups(course_id, fileName, seperator, write):
     password = "Geheim12345!";
     
     
-    f = open(fileName, "r");
+    f = open(fileName, "r", encoding="utf-8");
 
     lines = f.readlines();
     f.close();
@@ -111,23 +111,24 @@ def getGroups(course_id, fileName, seperator, write):
         for i in range(fileLength):
             line = result[i].split(seperator);
             if True: #TODO add exclusion lists
-                groupName = course_id_firstPart + "-" + line[sortOrder.index("groupname")];
-                groupName = groupName.replace(" ", "-");
-                if not any(groupName in s for s in groupList):
-                    groupList.append(groupName);
-                
-                currentUsername = "tudelft_" + line[sortOrder.index("username")];
-                if not "@" in currentUsername:
-                     currentUsername += "@tudelft.nl";
-                     
-                currentFirstname = line[sortOrder.index("firstname")]
-                currentLastname = line[sortOrder.index("lastname")]
-                
-                f.write(currentFirstname + ";" + currentLastname + ";" + groupName + ";" + "group_student,overall_filemanager" +
-                                ";" + "active" + ";" + currentUsername +
-                                ";" + password + ";" + line[sortOrder.index("email")] + ";" + "notsynced")
-                if not (i == (fileLength - 1)):
-                    f.write("\n")
+                if not (line[sortOrder.index("groupname")] == ""):
+                    groupName = course_id_firstPart + "-" + line[sortOrder.index("groupname")];
+                    groupName = groupName.replace(" ", "-");
+                    if not (groupName in groupList):
+                        groupList.append(groupName);
+                    
+                    currentUsername = "tudelft_" + line[sortOrder.index("username")];
+                    if not "@" in currentUsername:
+                         currentUsername += "@tudelft.nl";
+                         
+                    currentFirstname = line[sortOrder.index("firstname")]
+                    currentLastname = line[sortOrder.index("lastname")]
+                    
+                    f.write(currentFirstname + ";" + currentLastname + ";" + groupName + ";" + "group_student,overall_filemanager" +
+                                    ";" + "active" + ";" + currentUsername +
+                                    ";" + password + ";" + line[sortOrder.index("email")] + ";" + "notsynced")
+                    if not (i == (fileLength - 1)):
+                        f.write("\n")
 
         f.close();
     
@@ -137,9 +138,9 @@ def getGroups(course_id, fileName, seperator, write):
             groupName = line[sortOrder.index("grouphand")];
             groupName = groupName.replace(" ", "-");
             
-            if not any(groupName in s for s in groupList):
+            if not (groupName in groupList):
                 groupList.append(groupName);
-
+        
     return groupList[0:len(groupList)];
 
 def errorChecker(fileName):

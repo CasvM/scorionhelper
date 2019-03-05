@@ -3,11 +3,11 @@
 block_cipher = None
 
 
-a = Analysis(['ELS_GUI.py'],
-             pathex=['H:\\My Documents\\Python\\Files'],
+a = Analysis(["ELS_GUI.py"],
+             pathex=["H:\\My Documents\\Python\\Files"],
              binaries=[("chromedriver.exe","."), ("elslogo.ico", ".")],
              datas=[("manual.docx", ".")],
-             hiddenimports=[],
+             hiddenimports=["tkinter"],
              hookspath=[],
              runtime_hooks=[],
              excludes=[],
